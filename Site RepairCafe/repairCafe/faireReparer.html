@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faire réparer — Repair Café</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../javascript/reparationScript.js" defer></script>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-logo">
+      <img src="../images/LOGO_RC.png" alt="Logo IUT">
+    </a>
+    <a href="https://www.iut-rodez.fr/fr" target="_blank" class="navbar-logo">
+      <img src="../images/logoIUT.png">
+    </a>
+    <a href="https://www.iut-rodez.fr/fr" target="_blank" class="navbar-logo">
+      <img src="../images/logoInformatique.png">
+    </a>
+    <ul class="navbar-links">
+      <li><a href="../index.html" class="active">Accueil</a></li>
+      <li><a href="formulaire.html">Devenir bénévole</a></li>
+      <li><a href="faireReparer.html">Faire réparer</a></li>
+      <li><a href="../repairCafe/dispositif.html">Prêter / louer / recycler</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── RETOUR ── -->
+  <div class="back-bar">
+    <a href="../index.html" class="btn btn-back">← Retour à l'accueil</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="page-hero">
+    <h1>Tout pour votre réparation</h1>
+    <p>Déposez votre machine lors d'un atelier — nos bénévoles s'en occupent.</p>
+  </div>
+
+  <!-- ── CONTENU ── -->
+  <main>
+    <form novalidate>
+
+      <!-- Coordonnées -->
+      <div class="card-section">
+        <h2>Vos coordonnées</h2>
+
+        <div class="form-group">
+          <label for="email">Adresse e-mail <span style="color:var(--rouge-iut)">*</span></label>
+          <input type="email" id="email" placeholder="exemple@mail.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telephone">Numéro de téléphone <span style="color:var(--rouge-iut)">*</span></label>
+          <input type="tel" id="telephone" placeholder="06 00 00 00 00" required>
+        </div>
+      </div>
+
+      <!-- Rendez-vous -->
+      <div class="card-section">
+        <h2>Votre rendez-vous</h2>
+
+        <div class="form-group">
+          <label for="date">Date souhaitée pour déposer votre machine <span style="color:var(--rouge-iut)">*</span></label>
+          <input type="date" id="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="salle">Salle disponible <span style="color:var(--rouge-iut)">*</span></label>
+          <select id="salle" required>
+            <option value="">— Veuillez choisir une option —</option>
+            <option value="A300">A300</option>
+            <option value="A500">A500</option>
+            <option value="B301">B301</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="heure">Heure souhaitée <span style="color:var(--rouge-iut)">*</span></label>
+          <input type="time" id="heure" required>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
+        <button type="submit" class="btn btn-danger">Valider ma demande</button>
+        <button type="reset" class="btn btn-outline">Réinitialiser</button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span>© Repair Café — IUT</span>
+    <a href="contact.html">Contactez-nous</a>
+  </footer>
+
+</body>
+</html>

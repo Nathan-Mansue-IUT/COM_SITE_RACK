@@ -1,0 +1,367 @@
+/* =====================================================
+   Repair Café — Feuille de style principale
+   DA inspirée de iut-rodez.fr
+   Polices : Share Tech Mono (titres) + Nunito (corps)
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Nunito:wght@400;600;700&display=swap');
+
+/* ── Variables ────────────────────────────────────── */
+:root {
+  --bleu-iut:    black;
+  --rouge-hover: #c8002a;
+  --rouge-iut:   #c8002a;
+  --gris-clair:  #f4f6f9;
+  --gris-bord:   #dce3ec;
+  --texte:       #1a1a2e;
+  --blanc:       #ffffff;
+  --font-titre:  'Share Tech Mono', monospace;
+  --font-corps:  'Nunito', sans-serif;
+  --nav-h:       64px;
+  --radius:      6px;
+  --shadow:      0 2px 10px rgba(0,0,0,.12);
+}
+
+/* ── Reset & base ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-corps);
+  font-size: 1rem;
+  color: var(--texte);
+  background: var(--blanc);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* <--- AJOUTE CECI */
+}
+
+body::before {
+  content: "";
+  position: fixed; /* Reste fixe au défilement (tu peux mettre absolute si tu préfères qu'elle défile) */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/composants-ordinateur.jpg'); /* Ajuste le chemin selon l'arborescence de tes dossiers */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7; /* Ajuste la transparence ici (0.15 = 15% d'opacité) */
+  z-index: -1; /* Place l'image impérativement DERRIÈRE tout le contenu */
+  pointer-events: none; /* Empêche l'image d'interférer avec les clics de la souris */
+}
+
+a { color: var(--bleu-iut); text-decoration: none; }
+a:hover { color: var(--rouge-iut); text-decoration: underline; }
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-titre);
+  color: var(--bleu-iut);
+  line-height: 1.2;
+}
+
+/* ── NAVBAR ───────────────────────────────────────── */
+.navbar {
+  background: var(--bleu-iut);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  color : white;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.navbar-logo .site-name {
+  font-family: var(--font-titre);
+  font-size: 1.1rem;
+  color: var(--blanc);
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  list-style: none;
+  margin-left: auto;
+}
+
+.navbar-links a {
+  color: rgba(255,255,255,.85);
+  font-family: var(--font-corps);
+  font-weight: 600;
+  font-size: .92rem;
+  padding: .45rem .9rem;
+  border-radius: var(--radius);
+  transition: background .18s, color .18s;
+  white-space: nowrap;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  background: var(--rouge-iut);
+  color: var(--blanc);
+  text-decoration: none;
+}
+
+/* ── BANDE TITRE PAGE ─────────────────────────────── */
+.page-hero {
+  background: var(--bleu-iut);
+  color: var(--blanc);
+  padding: 2.5rem 2rem 2rem;
+  border-bottom: 4px solid var(--rouge-iut);
+}
+
+.page-hero h1 {
+  color: var(--blanc);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.page-hero p {
+  color: rgba(255,255,255,.75);
+  margin-top: .4rem;
+  font-size: .95rem;
+}
+
+/* ── CONTENU PRINCIPAL ────────────────────────────── */
+main {
+  flex: 1;
+  padding: 2.5rem 2rem;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── CARDS / SECTIONS ─────────────────────────────── */
+.card-section {
+  background: var(--blanc);
+  border: 1px solid var(--gris-bord);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-section h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--rouge-iut);
+  display: inline-block;
+}
+
+/* ── FORMULAIRE ───────────────────────────────────── */
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: .35rem;
+  font-size: .9rem;
+  color: var(--bleu-iut);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+  width: 100%;
+  padding: .55rem .8rem;
+  border: 1.5px solid var(--gris-bord);
+  border-radius: var(--radius);
+  font-family: var(--font-corps);
+  font-size: .95rem;
+  color: var(--texte);
+  background: var(--gris-clair);
+  transition: border-color .18s, box-shadow .18s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--bleu-iut);
+  box-shadow: 0 0 0 3px rgba(0,40,94,.12);
+  background: var(--blanc);
+}
+
+/* ── BOUTONS ──────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: var(--font-corps);
+  font-weight: 700;
+  font-size: .92rem;
+  padding: .6rem 1.4rem;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .18s, color .18s, border-color .18s, transform .1s;
+}
+
+.btn:hover { transform: translateY(-1px); text-decoration: none; }
+
+.btn-primary {
+  background: var(--bleu-iut);
+  color: var(--blanc);
+  border-color: var(--bleu-iut);
+}
+.btn-primary:hover {
+  background: var(--rouge-hover);
+  border-color: var(--rouge-hover);
+  color: var(--blanc);
+}
+
+.btn-danger {
+  background: var(--rouge-iut);
+  color: var(--blanc);
+  border-color: var(--rouge-iut);
+}
+.btn-danger:hover {
+  background: #a0001f;
+  border-color: #a0001f;
+  color: var(--blanc);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--bleu-iut);
+  border-color: var(--bleu-iut);
+}
+.btn-outline:hover {
+  background: var(--bleu-iut);
+  color: var(--blanc);
+}
+
+.btn-back {
+  background: var(--gris-clair);
+  color: var(--bleu-iut);
+  border-color: var(--gris-bord);
+  font-size: .85rem;
+  padding: .45rem 1rem;
+}
+.btn-back:hover {
+  background: var(--bleu-iut);
+  color: var(--blanc);
+  border-color: var(--bleu-iut);
+}
+
+/* ── BARRE DE RETOUR ACCUEIL ──────────────────────── */
+.back-bar {
+  background: var(--gris-clair);
+  border-bottom: 1px solid var(--gris-bord);
+  padding: .6rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ── PAGE ACCUEIL : grandes cartes ───────────────── */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.home-grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.home-card {
+  background: var(--gris-clair);
+  border: 1px solid var(--gris-bord);
+  border-top: 4px solid var(--bleu-iut);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: box-shadow .2s, transform .2s;
+}
+
+.home-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,.13);
+  transform: translateY(-3px);
+}
+
+.home-card .card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.home-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: .7rem;
+}
+
+.home-card p {
+  font-size: .88rem;
+  color: #555;
+  margin-bottom: 1.2rem;
+}
+
+/* ── FOOTER ───────────────────────────────────────── */
+footer {
+  background: var(--bleu-iut);
+  color: rgba(255,255,255,.7);
+  padding: 1.2rem 2rem;
+  font-size: .85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: auto;
+}
+
+footer a {
+  color: rgba(255,255,255,.85);
+  font-weight: 600;
+}
+footer a:hover { color: var(--blanc); }
+
+/* ── CONTACT ──────────────────────────────────────── */
+.contact-info p {
+  font-size: 1.05rem;
+  margin-bottom: .8rem;
+  padding: .8rem 1rem;
+  background: var(--gris-clair);
+  border-left: 4px solid var(--rouge-iut);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .navbar { padding: 0 1rem; gap: 1rem; }
+  .navbar-links { gap: .1rem; }
+  .navbar-links a { padding: .4rem .6rem; font-size: .82rem; }
+  .site-name { display: none; }
+  main { padding: 1.5rem 1rem; }
+  .back-bar { padding: .5rem 1rem; }
+}
