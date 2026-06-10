@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const champsObligatoires = [
             { id: 'prenom', nom: 'Prénom' },
             { id: 'nom', nom: 'Nom' },
+            { id: 'telephone', nom: 'Téléphone' },
             { id: 'email', nom: 'Adresse e-mail' },
             { id: 'ville', nom: 'Ville' }
         ];
